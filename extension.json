@@ -1,0 +1,45 @@
+{
+  "name": "Period Stats",
+  "apiVersion": "1.0.0",
+  "author": "Peter Jaquiery",
+  "version": "1.0.0",
+  "description": "Calculate min, mean and max period stats",
+  "extensions": {
+    "PeriodStats": {
+      "type": "DigitalMeasurement",
+      "entryPoint": "PeriodStats.PeriodStatsMeasurer",
+      "metrics": {
+        "pMin": {
+          "name": "Min",
+          "notation": "Min",
+          "units": "s"
+        },
+        "pMean": {
+          "name": "Mean",
+          "notation": "Mean",
+          "units": "s"
+        },
+        "pFreq": {
+          "name": "Freq",
+          "notation": "Freq",
+          "units": "Hz"
+        },
+        "pSDev": {
+          "name": "Std Dev",
+          "notation": "SDev",
+          "units": "s"
+        },
+        "pMax": {
+          "name": "Max",
+          "notation": "Max",
+          "units": "s"
+        },
+        "pCount": {
+          "name": "Count",
+          "notation": "Count",
+          "units": ""
+        }
+      }
+    }
+  }
+}
