@@ -4,11 +4,14 @@
 **Period Stats** is a Logic2 extension that adds simple period statistics
 to digital measurements.
 
+**Period Stats** uses the first edge it sees to select rising edges or falling
+edges for period measurements.
+
 ![](PeriodStatsSample.png)
 
 ## Instructions
 
-Install **PeriodStats** by clicking "Install" on the **Period Stats** entry in the
+Install **Period Stats** by clicking "Install" on the **Period Stats** entry in the
 Extensions panel.
 
 To add a measurement you can:

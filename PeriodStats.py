@@ -3,10 +3,6 @@ from math import sqrt
 
 # 'User' parameters
 
-# Set kWantRisingEdge False for falling edge driven measurements or True for
-# rising edge driven measurements
-kWantRisingEdge = True
-
 class RunningSD:
     def __init__(self):
         self.n = 0
@@ -57,6 +53,11 @@ class PeriodStatsMeasurer(DigitalMeasurer):
         self.lastState = None
         self.SDev = RunningSD()
 
+        # kWantRisingEdge is set False for falling edge driven measurements or True for
+        # rising edge driven measurements based on the direction of the first edge
+        # seen.
+        self.mWantRisingEdge = None
+
     '''
     process_data() will be called one or more times per measurement with batches
     of data.
@@ -73,7 +74,10 @@ class PeriodStatsMeasurer(DigitalMeasurer):
     '''
     def process_data(self, data):
         for t, bitstate in data:
-            if bitstate != kWantRisingEdge:
+            if self.mWantRisingEdge == None:
+                self.mWantRisingEdge = bitstate
+
+            if bitstate != self.mWantRisingEdge:
                 continue
 
             if self.lastState is None:
